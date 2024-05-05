@@ -1,0 +1,195 @@
+body {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    font-family: "Anton";
+    font-size: 100pt;
+    overflow-x: hidden;
+}
+
+.title {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    display: inline-block;
+    letter-spacing: 0px;
+    line-height: 125px;
+}
+
+.title2 {
+    text-decoration: none;
+    color: black;
+    position: fixed;
+    left: 8px;
+    bottom: 6px;
+    display: inline-block;
+    letter-spacing: -5px;
+    line-height: 275px;
+    transition: all 0.8s ease;
+}
+
+.title2:hover {
+    transform: translateY(-410px);
+    color: white;
+    text-shadow:
+    -1.5px -1.5px 0 black,  
+    1.5px -1.5px 0 black,
+    -1.5px  1.5px 0 black,
+    1.5px  1.5px 0 black; 
+}
+
+.title2 .tooltip {
+    color: black;
+    visibility: hidden;
+    width: 110%;
+    font-size: 90pt;
+    letter-spacing: 0px;
+    line-height: 92pt;
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    Top: 300px;
+    left: 0px;
+    opacity: 0%;
+    transition: all 0.5s ease;
+}
+
+.title2:hover .tooltip {
+    visibility: visible;
+    opacity: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    right: 10px;
+    top: -85px;
+}
+
+.number {
+    /* border: 3px solid black; */
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    letter-spacing: -5px;
+    transition: all 0.4s ease;
+}
+
+.number:hover {
+    transform: scaleY(1.7);
+    color: white;
+    text-shadow:
+    -1.5px -1.5px 0 black,  
+    1.5px -1.5px 0 black,
+    -1.5px  1.5px 0 black,
+    1.5px  1.5px 0 black; 
+}
+
+.number1 {
+    /* border: 3px solid black; */
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    letter-spacing: -5px;
+    transition: all 0.4s ease;
+}
+
+.number1:hover {
+    transform: scaleY(1.7) translateY(55px);
+    color: white;
+    text-shadow:
+    -1.5px -1.5px 0 black,  
+    1.5px -1.5px 0 black,
+    -1.5px  1.5px 0 black,
+    1.5px  1.5px 0 black; 
+}
+
+.number8 {
+    /* border: 3px solid black; */
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    letter-spacing: -5px;
+    transition: all 0.4s ease;
+}
+
+.number8:hover {
+    transform: translateY(-170px);
+    color: white;
+    text-shadow:
+    -1.5px -1.5px 0 black,  
+    1.5px -1.5px 0 black,
+    -1.5px  1.5px 0 black,
+    1.5px  1.5px 0 black; 
+}
+
+.number8 .tooltip .tag1{
+    text-decoration: none;
+    color: black;
+    visibility: hidden;
+    width: 110%;
+    font-size: 90pt;
+    letter-spacing: 0px;
+    line-height: 92pt;
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    Top: 380px;
+    left: 0px;
+    opacity: 0%;
+    transition: all 0.5s ease;
+}
+
+.number8:hover .tooltip .tag1{
+    visibility: visible;
+    opacity: 100%;
+}
+
+.number8 .tooltip .tag2{
+    text-decoration: none;
+    color: black;
+    visibility: hidden;
+    width: 110%;
+    font-size: 90pt;
+    letter-spacing: 0px;
+    line-height: 92pt;
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    Top: 680px;
+    left: 0px;
+    opacity: 0%;
+    transition: all 0.5s ease;
+}
+
+.number8:hover .tooltip .tag2{
+    visibility: visible;
+    opacity: 100%;
+}
+
+.number8 .tooltip .tag3{
+    text-decoration: none;
+    color: black;
+    visibility: hidden;
+    width: 110%;
+    font-size: 90pt;
+    letter-spacing: 0px;
+    line-height: 92pt;
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    Top: 980px;
+    left: 0px;
+    opacity: 0%;
+    transition: all 0.5s ease;
+}
+
+.number8:hover .tooltip .tag3{
+    visibility: visible;
+    opacity: 100%;
+}
+
+
+
