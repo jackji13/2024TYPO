@@ -1,5 +1,5 @@
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js';
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/controls/OrbitControls.js';
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
@@ -18,7 +18,7 @@ scene.add(cube);
 camera.position.z = 5;
 
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true; // optional smooth rotation effect
+controls.enableDamping = true; // optional: an aesthetic choice to add inertia to orbit controls
 
 let scrollSpeed = 0.003; // Initial rotation speed
 const defaultRotationSpeed = 0.003; // Default rotation speed when no scrolling
@@ -43,7 +43,7 @@ function animate() {
     cube.rotation.x += scrollSpeed;
     cube.rotation.y += scrollSpeed;
 
-    controls.update();
+    controls.update(); // necessary to call this in the animation loop when using OrbitControls
     renderer.render(scene, camera);
 }
 
