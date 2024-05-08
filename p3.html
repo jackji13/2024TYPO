@@ -26,7 +26,7 @@
 <body>
 
     <div>
-        <a class="title">003</a>
+        <a class="title" href="index.html">003</a>
     </div>
 
     <div class="container">
@@ -37,10 +37,6 @@
 
         <div>
             <a class="number" href="p2.html">002</a>
-        </div>
-
-        <div>
-            <a class="number" href="p3.html">003</a>
         </div>
 
         <div>
@@ -70,6 +66,22 @@
         </div>
 
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const title = document.querySelector('.title');
+            const canvas = document.querySelector('canvas');
+        
+            title.addEventListener('mouseenter', function() {
+                canvas.style.transform = 'translate(-40%, -50%)'; // Adjust this value to move it right
+            });
+        
+            title.addEventListener('mouseleave', function() {
+                canvas.style.transform = 'translate(-50%, -50%)'; // Reset to original position
+            });
+        });
+        </script>
+        
 </body>
 
 </html>

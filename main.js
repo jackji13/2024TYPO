@@ -5,17 +5,15 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
 
 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 7;
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const geometry = new THREE.BoxGeometry(1, 1, 1);
-
-// Shader code
+// Shader definitions
 const vertexShader = `
     varying vec3 vPosition;
-
     void main() {
         vPosition = position;
         gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
@@ -25,7 +23,6 @@ const vertexShader = `
 const fragmentShader = `
     varying vec3 vPosition;
     uniform float time;
-
     void main() {
         float r = 0.5 + 0.5 * sin(vPosition.x * 2.0 + time);
         float g = 0.5 + 0.5 * sin(vPosition.y * 2.0 + time);
@@ -35,19 +32,63 @@ const fragmentShader = `
 `;
 
 const shaderMaterial = new THREE.ShaderMaterial({
-    vertexShader,
-    fragmentShader,
+    vertexShader: vertexShader,
+    fragmentShader: fragmentShader,
     uniforms: {
         time: { value: 0.0 }
     }
 });
 
+const geometry = new THREE.BoxGeometry(1, 1, 1);
 const cube = new THREE.Mesh(geometry, shaderMaterial);
-cube.position.set(0, 0, 0);
-cube.scale.set(1, 1, 1);
 scene.add(cube);
 
-camera.position.z = 7;
+// Loading textures with high-quality filtering and mipmaps
+const maxAnisotropy = renderer.capabilities.getMaxAnisotropy();
+const loader = new THREE.TextureLoader();
+
+function loadTexture(url) {
+    return new Promise((resolve) => {
+        loader.load(url, (texture) => {
+            texture.anisotropy = maxAnisotropy;
+            texture.minFilter = THREE.LinearMipmapLinearFilter;
+            resolve(texture);
+        });
+    });
+}
+
+// Load all textures and apply to materials
+Promise.all([
+    loadTexture('assets/P.png'),
+    loadTexture('assets/O.png'),
+    loadTexture('assets/T.png'),
+    loadTexture('assets/Y.png')
+]).then(([textureP, textureO, textureT, textureY]) => {
+    const materials = [
+        new THREE.MeshBasicMaterial({ map: textureP, transparent: true }),
+        new THREE.MeshBasicMaterial({ map: textureY, transparent: true }),
+        new THREE.MeshBasicMaterial({ map: textureT, transparent: true }),
+        new THREE.MeshBasicMaterial({ transparent: true, opacity: 0 }),
+        new THREE.MeshBasicMaterial({ map: textureO, transparent: true }),
+        new THREE.MeshBasicMaterial({ transparent: true, opacity: 0 })
+    ];
+    const overlayGeometry = new THREE.BoxGeometry(1.01, 1.01, 1.01);
+    const overlayCube = new THREE.Mesh(overlayGeometry, materials);
+    scene.add(overlayCube);
+
+    function animate() {
+        requestAnimationFrame(animate);
+        shaderMaterial.uniforms.time.value += 0.02; // Update the time uniform
+        cube.rotation.x += scrollSpeed;
+        cube.rotation.y += scrollSpeed;
+        overlayCube.rotation.x = cube.rotation.x;
+        overlayCube.rotation.y = cube.rotation.y;
+        overlayCube.rotation.z = cube.rotation.z;
+        controls.update();
+        renderer.render(scene, camera);
+    }
+    animate();
+});
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
@@ -64,17 +105,4 @@ function updateRotationSpeed() {
     }, 20);
 }
 
-function animate() {
-    requestAnimationFrame(animate);
-
-    shaderMaterial.uniforms.time.value += 0.02; // Update the time uniform to animate the shader
-
-    cube.rotation.x += scrollSpeed;
-    cube.rotation.y += scrollSpeed;
-
-    controls.update();
-    renderer.render(scene, camera);
-}
-
 window.addEventListener('scroll', updateRotationSpeed);
-animate();

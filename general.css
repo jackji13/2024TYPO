@@ -8,12 +8,25 @@ body {
 }
 
 .title {
+    color: black;
+    text-decoration: none;
     position: fixed;
     left: 0px;
     top: 8px;
     display: inline-block;
     letter-spacing: -5px;
     line-height: 275px;
+    transition: all 0.4s ease;
+}
+
+.title:hover {
+    transform: scaleX(1.5) translateX(67px);
+    color: white;
+    text-shadow:
+    -1.5px -1.5px 0 black,  
+    1.5px -1.5px 0 black,
+    -1.5px  1.5px 0 black,
+    1.5px  1.5px 0 black; 
 }
 
 .container {
@@ -155,9 +168,5 @@ canvas {
     top: 140px;
     left: 29%;
     transform: translate(-50%, -50%);
+    transition: transform 0.8s ease;
 }
-
-
-
-
-
