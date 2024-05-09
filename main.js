@@ -1,17 +1,20 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js';
 import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/controls/OrbitControls.js';
 
+const canvas = document.getElementById('cubeCanvas');  // Get the specific canvas for the cube
+
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xffffff);
 
 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.z = 7;
 
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({
+    canvas: canvas,
+    alpha: true
+});
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// Shader definitions
 const vertexShader = `
     varying vec3 vPosition;
     void main() {
@@ -43,7 +46,6 @@ const geometry = new THREE.BoxGeometry(1, 1, 1);
 const cube = new THREE.Mesh(geometry, shaderMaterial);
 scene.add(cube);
 
-// Loading textures with high-quality filtering and mipmaps
 const maxAnisotropy = renderer.capabilities.getMaxAnisotropy();
 const loader = new THREE.TextureLoader();
 
@@ -57,7 +59,6 @@ function loadTexture(url) {
     });
 }
 
-// Load all textures and apply to materials
 Promise.all([
     loadTexture('assets/P.png'),
     loadTexture('assets/O.png'),
@@ -78,7 +79,7 @@ Promise.all([
 
     function animate() {
         requestAnimationFrame(animate);
-        shaderMaterial.uniforms.time.value += 0.02; // Update the time uniform
+        shaderMaterial.uniforms.time.value += 0.02;
         cube.rotation.x += scrollSpeed;
         cube.rotation.y += scrollSpeed;
         overlayCube.rotation.x = cube.rotation.x;
