@@ -1,16 +1,13 @@
 body {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
     font-family: "Anton";
-    font-size: 230pt;
     overflow-x: hidden;
 }
 
 .title {
+    font-size: 230pt;
     color: black;
     text-decoration: none;
-    position: fixed;
+    position: absolute;
     left: 0px;
     top: 8px;
     display: inline-block;
@@ -20,7 +17,7 @@ body {
 }
 
 .title:hover {
-    transform: scaleX(1.5) translateX(67px);
+    transform: scaleX(1.5) translateX(75px);
     color: white;
     text-shadow:
     -1.5px -1.5px 0 black,  
@@ -29,26 +26,80 @@ body {
     1.5px  1.5px 0 black; 
 }
 
+.subtitle {
+    font-size: 80pt;
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    right: 8px;
+    top: -130px;
+    display: inline-block;
+    transition: all 0.4s ease;
+    animation: subtitle 1.3s 0.75s ease both;
+}
 
+.description {
+    font-family: "franklin-gothic-compressed", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 25pt;
+    color: black;
+    text-decoration: none;
+    width: 800px;
+    text-align: justify;
+    position: absolute;
+    top: 110px;
+    right: 8px;
+    animation: subtitle 1.3s 0.9s ease both;
+}
 
-/* canvas {
-    pointer-events: none;
-    position: fixed;
-    z-index: -1;
-    top: 140px;
-    left: 29%;
+.container {
+    position: absolute;
+    top: 90%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    transition: transform 0.8s ease;
-} */
+    height: 100vh; /* Full viewport height */
+    animation: image 1.3s 1.5s ease both;
+}
+
+.imgContainer {
+    display: flex;
+    flex-wrap: wrap; /* Allows images to wrap to the next line */
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 90vw; /* Container width */
+    height: auto; /* Container height */
+    overflow: hidden; /* Adds overflow protection */
+    /* border: 5px solid black; */
+}
+
+.imgDescription {
+    font-family: "franklin-gothic-compressed", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 25pt;
+    color: black;
+    text-decoration: none;
+    line-height: 0px;
+}
+
+.image {
+    width: 750px; /* Makes image width responsive to container */
+    height: auto; /* Keeps image aspect ratio intact */
+    display: block; /* Removes bottom margin/padding */
+    margin-top: 20px; /* Adds space between images */
+
+}
 
 #cubeCanvas {
     pointer-events: none;
-    position: fixed;
+    position: absolute;
     z-index: -1;
     top: 140px;
     left: 29%;
     transform: translate(-50%, -50%);
     transition: transform 0.8s ease;
+    animation: cube 1.3s ease none;
 }
 
 #gltfCanvas {
@@ -60,3 +111,36 @@ body {
     /* Ensure no transitions affect the positioning of the GLTF canvas */
 }
 
+@keyframes cube {
+    0% {
+        left: 0%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 29%;
+        opacity: 1;
+    }
+}
+
+@keyframes subtitle {
+    0% {
+        right: -800px;
+        opacity: 0;
+    }
+
+    100% {
+        right: 8px;
+        opacity: 1;
+    }
+}
+
+@keyframes image {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

@@ -10,6 +10,7 @@
     <link rel="icon" href="assets/icon.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://use.typekit.net/tep7wrm.css">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <script type="importmap">
         {
@@ -30,6 +31,34 @@
     </div>
 
     <div>
+        <p class="subtitle">NINE SQUARE GRID & COLLAGE</p>
+    </div>
+
+    <div>
+        <p class="description">There are two parts to this visual study project. Part A requires cutting nine 3" x 3"
+             text blocks from black and white publications and arranging them together in a grid. Part B involves 
+             making a collage using colored text from publications. Both parts should be 9" x 9" in size and glued 
+             onto an illustration board.
+        </p>
+    </div>
+
+    <div class="container">
+        <div class="imgContainer">
+
+            <div>
+                <img class="image" src="assets/project1-1.jpg" >
+                <p class="imgDescription">PART A</p>
+            </div>
+
+            <div>
+                <img class="image" src="assets/project1-2.jpg" >
+                <p class="imgDescription">PART B</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <div>
         <canvas id="cubeCanvas"></canvas>
         <canvas id="gltfCanvas"></canvas>
     </div>
@@ -37,14 +66,14 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const title = document.querySelector('.title');
-            const cubeCanvas = document.getElementById('cubeCanvas'); // Only target the cube canvas
+            const cubeCanvas = document.getElementById('cubeCanvas');
         
             title.addEventListener('mouseenter', function() {
-                cubeCanvas.style.transform = 'translate(-40%, -50%)'; // Move right by 100px
+                cubeCanvas.style.transform = 'translate(-40%, -50%)';
             });
         
             title.addEventListener('mouseleave', function() {
-                cubeCanvas.style.transform = 'translate(-50%, -50%)'; // Move back to the original position
+                cubeCanvas.style.transform = 'translate(-50%, -50%)';
             });
         });
     </script>

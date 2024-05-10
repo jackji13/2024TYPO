@@ -66,6 +66,7 @@ body {
     position: absolute;
     right: 10px;
     top: -85px;
+    animation: number 0.8s 0.9s ease both;
 }
 
 .number {
@@ -75,6 +76,7 @@ body {
     color: black;
     letter-spacing: -5px;
     transition: all 0.4s ease;
+
 }
 
 .number:hover {
@@ -191,16 +193,39 @@ body {
     opacity: 100%;
 }
 
-canvas {
-    pointer-events: none;
+#cubeCanvas {
+    /* pointer-events: none; */
     position: fixed;
     z-index: -1;
     top: 140px;
     left: 53%;
     transform: translate(-50%, -50%);
+    transition: transform 0.8s ease;
+    animation: cube 1.3s ease none;
 }
 
+@keyframes cube {
+    0% {
+        left: 23%;
+        opacity: 0;
+    }
 
+    100% {
+        left: 53%;
+        opacity: 1;
+    }
+}
 
+@keyframes number {
+    0% {
+        right: -400px;
+        opacity: 0;
+    }
+
+    100% {
+        right: 8px;
+        opacity: 1;
+    }
+}
 
 
