@@ -152,7 +152,7 @@ pre span:hover {
 
 @font-face {
     font-family: 'Sanity';
-    src: url('../assets/project6/font/Sanity.ttf') format('truetype');
+    src: url('https://github.com/jackji13/2024TYPO/blob/main/assets/project6/font/Sanity.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
