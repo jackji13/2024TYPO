@@ -45,7 +45,7 @@ body {
     font-size: 90pt;
     letter-spacing: 0px;
     line-height: 92pt;
-    /* Position the tooltip text */
+
     position: absolute;
     z-index: 1;
     Top: 300px;
@@ -70,7 +70,6 @@ body {
 }
 
 .number {
-    /* border: 3px solid black; */
     display: inline-block;
     text-decoration: none;
     color: black;
@@ -90,7 +89,6 @@ body {
 }
 
 .number1 {
-    /* border: 3px solid black; */
     display: inline-block;
     text-decoration: none;
     color: black;
@@ -109,7 +107,6 @@ body {
 }
 
 .number8 {
-    /* border: 3px solid black; */
     display: inline-block;
     text-decoration: none;
     color: black;
@@ -135,7 +132,6 @@ body {
     font-size: 90pt;
     letter-spacing: 0px;
     line-height: 92pt;
-    /* Position the tooltip text */
     position: absolute;
     z-index: 1;
     Top: 380px;
@@ -157,7 +153,6 @@ body {
     font-size: 90pt;
     letter-spacing: 0px;
     line-height: 92pt;
-    /* Position the tooltip text */
     position: absolute;
     z-index: 1;
     Top: 680px;
@@ -179,7 +174,6 @@ body {
     font-size: 90pt;
     letter-spacing: 0px;
     line-height: 92pt;
-    /* Position the tooltip text */
     position: absolute;
     z-index: 1;
     Top: 980px;
@@ -194,7 +188,7 @@ body {
 }
 
 #cubeCanvas {
-    /* pointer-events: none; */
+    pointer-events: none;
     position: fixed;
     z-index: -1;
     top: 140px;

@@ -27,7 +27,7 @@
 <body>
 
     <div>
-        <a class="title" href="index.html">008</a>
+        <a class="title" href="index.html">! ! !</a>
     </div>
 
     <div>
@@ -35,10 +35,10 @@
     </div>
 
     <div>
-        <p class="description">There are two parts to this visual study project. Part A requires cutting nine 3" x 3"
-             text blocks from black and white publications and arranging them together in a grid. Part B involves 
-             making a collage using colored text from publications. Both parts should be 9" x 9" in size and glued 
-             onto an illustration board.
+        <p class="description">
+            This is a weekly visual study of 50 different typefaces. Each week, five typefaces were studied by creating a design 
+            using the letter "g" in these five typefaces. Along with the "g" design, a pangram featuring "The quick brown fox 
+            jumps over the lazy dog" was also created. The study spans a total of ten weeks.
         </p>
     </div>
 
@@ -150,20 +150,19 @@
 
     <div>
         <canvas id="cubeCanvas"></canvas>
-        <canvas id="gltfCanvas"></canvas>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const title = document.querySelector('.title');
-            const cubeCanvas = document.getElementById('cubeCanvas'); // Only target the cube canvas
+            const cubeCanvas = document.getElementById('cubeCanvas');
         
             title.addEventListener('mouseenter', function() {
-                cubeCanvas.style.transform = 'translate(-40%, -50%)'; // Move right by 100px
+                cubeCanvas.style.transform = 'translate(-40%, -50%)';
             });
         
             title.addEventListener('mouseleave', function() {
-                cubeCanvas.style.transform = 'translate(-50%, -50%)'; // Move back to the original position
+                cubeCanvas.style.transform = 'translate(-50%, -50%)';
             });
         });
     </script>

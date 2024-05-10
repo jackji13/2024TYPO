@@ -8,8 +8,8 @@ body {
     color: black;
     text-decoration: none;
     position: absolute;
-    left: 0px;
-    top: 8px;
+    left: 6px;
+    top: 10px;
     display: inline-block;
     letter-spacing: -5px;
     line-height: 275px;
@@ -26,13 +26,36 @@ body {
     1.5px  1.5px 0 black; 
 }
 
+.title6 {
+    font-size: 230pt;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    position: absolute;
+    left: 6px;
+    top: 10px;
+    display: inline-block;
+    letter-spacing: -5px;
+    line-height: 275px;
+    transition: all 0.4s ease;
+}
+
+.title6:hover {
+    transform: scaleX(1.5) translateX(75px);
+    color: rgb(0, 0, 0);
+    text-shadow:
+    -1.5px -1.5px 0 rgb(255, 255, 255),  
+    1.5px -1.5px 0 rgb(255, 255, 255),
+    -1.5px  1.5px 0 rgb(255, 255, 255),
+    1.5px  1.5px 0 rgb(255, 255, 255); 
+}
+
 .subtitle {
     font-size: 80pt;
     color: black;
     text-decoration: none;
     position: absolute;
     right: 8px;
-    top: -130px;
+    top: -126px;
     display: inline-block;
     transition: all 0.4s ease;
     animation: subtitle 1.3s 0.75s ease both;
@@ -49,7 +72,7 @@ body {
     text-align: justify;
     position: absolute;
     top: 110px;
-    right: 8px;
+    right: 12px;
     animation: subtitle 1.3s 0.9s ease both;
 }
 
@@ -58,18 +81,18 @@ body {
     top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
     animation: image 1.3s 1.5s ease both;
 }
 
 .imgContainer {
     display: flex;
-    flex-wrap: wrap; /* Allows images to wrap to the next line */
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-start;
-    width: 90vw; /* Container width */
-    height: auto; /* Container height */
-    overflow: hidden; /* Adds overflow protection */
+    width: 90vw;
+    height: auto;
+    overflow: hidden;
     /* border: 5px solid black; */
 }
 
@@ -84,11 +107,36 @@ body {
 }
 
 .image {
-    width: 750px; /* Makes image width responsive to container */
-    height: auto; /* Keeps image aspect ratio intact */
-    display: block; /* Removes bottom margin/padding */
-    margin-top: 20px; /* Adds space between images */
+    width: 750px;
+    height: auto;
+    display: block;
+    margin-top: 20px;
+}
 
+/* .preContainer {
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+
+pre {
+    width: 1094px;
+    font-family: 'Sanity', sans-serif;
+    font-size: 120pt;
+    line-height: 200px;
+    letter-spacing: -40px;
+    color: rgb(220, 255, 0);
+}
+
+pre span {
+    display: inline-block;  /* Allows transformation */
+    transition: transform 0.3s ease; /* Smooth transition for the transform */
+    cursor: pointer;  /* Indicates an interactive element */
+}
+
+pre span:hover {
+    transform: scale(1.5);  /* Enlarges the letter */
 }
 
 #cubeCanvas {
@@ -102,14 +150,13 @@ body {
     animation: cube 1.3s ease none;
 }
 
-#gltfCanvas {
-    position: fixed;
-    z-index: -2;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* Ensure no transitions affect the positioning of the GLTF canvas */
+@font-face {
+    font-family: 'Sanity';
+    src: url('../assets/project6/font/Sanity.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
+
 
 @keyframes cube {
     0% {
@@ -130,7 +177,7 @@ body {
     }
 
     100% {
-        right: 8px;
+        right: 12px;
         opacity: 1;
     }
 }

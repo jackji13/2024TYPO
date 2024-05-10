@@ -63,20 +63,19 @@
 
     <div>
         <canvas id="cubeCanvas"></canvas>
-        <canvas id="gltfCanvas"></canvas>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const title = document.querySelector('.title');
-            const cubeCanvas = document.getElementById('cubeCanvas'); // Only target the cube canvas
+            const cubeCanvas = document.getElementById('cubeCanvas');
         
             title.addEventListener('mouseenter', function() {
-                cubeCanvas.style.transform = 'translate(-40%, -50%)'; // Move right by 100px
+                cubeCanvas.style.transform = 'translate(-40%, -50%)';
             });
         
             title.addEventListener('mouseleave', function() {
-                cubeCanvas.style.transform = 'translate(-50%, -50%)'; // Move back to the original position
+                cubeCanvas.style.transform = 'translate(-50%, -50%)';
             });
         });
     </script>

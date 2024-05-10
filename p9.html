@@ -27,7 +27,7 @@
 <body>
 
     <div>
-        <a class="title" href="index.html">009</a>
+        <a class="title" href="index.html">! ! !</a>
     </div>
 
     <div>
@@ -35,10 +35,9 @@
     </div>
 
     <div>
-        <p class="description">There are two parts to this visual study project. Part A requires cutting nine 3" x 3"
-             text blocks from black and white publications and arranging them together in a grid. Part B involves 
-             making a collage using colored text from publications. Both parts should be 9" x 9" in size and glued 
-             onto an illustration board.
+        <p class="description">During our field trip to the Center for Book Arts, we had the opportunity to participate in a workshop class 
+            focused on letterpress printing. This hands-on experience allowed us to immerse ourselves in the traditional craft of typesetting 
+            and printing. Under the guidance of a skilled instructor, we set type by hand and operated classic letterpress machine. The outcome was beautiful.
         </p>
     </div>
 
@@ -46,13 +45,23 @@
         <div class="imgContainer">
 
             <div>
-                <img class="image" src="assets/project1-1.jpg" >
-                <p class="imgDescription">PART A</p>
+                <img class="image" src="assets/ft1.jpg" >
+                <p class="imgDescription">SETTING UP TEXT</p>
             </div>
 
             <div>
-                <img class="image" src="assets/project1-2.jpg" >
-                <p class="imgDescription">PART B</p>
+                <img class="image" src="assets/ft2.jpg" >
+                <p class="imgDescription">LETTERPRESS MACHINE</p>
+            </div>
+
+            <div>
+                <img class="image" src="assets/ft3.jpg" >
+                <p class="imgDescription">FIRST LAYER (CYAN)</p>
+            </div>
+
+            <div>
+                <img class="image" src="assets/ft4.jpg" >
+                <p class="imgDescription">FINAL OUTCOME</p>
             </div>
             
         </div>
@@ -60,20 +69,19 @@
 
     <div>
         <canvas id="cubeCanvas"></canvas>
-        <canvas id="gltfCanvas"></canvas>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const title = document.querySelector('.title');
-            const cubeCanvas = document.getElementById('cubeCanvas'); // Only target the cube canvas
+            const cubeCanvas = document.getElementById('cubeCanvas');
         
             title.addEventListener('mouseenter', function() {
-                cubeCanvas.style.transform = 'translate(-40%, -50%)'; // Move right by 100px
+                cubeCanvas.style.transform = 'translate(-40%, -50%)';
             });
         
             title.addEventListener('mouseleave', function() {
-                cubeCanvas.style.transform = 'translate(-50%, -50%)'; // Move back to the original position
+                cubeCanvas.style.transform = 'translate(-50%, -50%)';
             });
         });
     </script>
